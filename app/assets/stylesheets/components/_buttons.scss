@@ -1,0 +1,49 @@
+.btn-accent {
+  background: $accent;
+  color: $text-white;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.65rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.2s, transform 0.1s;
+
+  &:hover {
+    background: $accent-light;
+    color: $text-white;
+    transform: translateY(-1px);
+  }
+}
+
+.btn-ghost {
+  background: transparent;
+  color: $text-muted;
+  border: 1px solid $border-color;
+  border-radius: 0.75rem;
+  padding: 0.65rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, color 0.2s;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    color: $text-white;
+  }
+}
+
+.btn-danger-ghost {
+  background: transparent;
+  color: $accent;
+  border: 1px solid rgba(233, 69, 96, 0.3);
+  border-radius: 0.75rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(233, 69, 96, 0.12);
+    border-color: $accent;
+    color: $accent;
+  }
+}

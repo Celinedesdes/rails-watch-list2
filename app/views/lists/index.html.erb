@@ -1,0 +1,35 @@
+<div class="section-header d-flex align-items-center justify-content-between">
+  <div>
+    <h1 class="section-title">Mes listes 🎬</h1>
+    <p class="section-subtitle">Toutes tes watchlists au même endroit</p>
+  </div>
+</div>
+
+<% if @lists.empty? %>
+  <div class="empty-state">
+    <div class="empty-state-icon">🍿</div>
+    <p class="empty-state-title">Aucune liste pour l'instant</p>
+    <p class="empty-state-text">Crée ta première watchlist pour commencer !</p>
+    <%= link_to "+ Créer une liste", new_list_path, class: "btn btn-accent mt-3" %>
+  </div>
+<% else %>
+  <div class="row g-3">
+    <% @lists.each do |list| %>
+      <div class="col-12 col-sm-6 col-lg-4">
+        <%= link_to list_path(list), class: "list-card" do %>
+          <div class="list-card-icon">🎥</div>
+          <div class="list-card-title"><%= list.name %></div>
+          <div class="list-card-count"><%= pluralize(list.bookmarks.count, "film") %></div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="col-12 col-sm-6 col-lg-4">
+      <%= link_to new_list_path, class: "list-card list-card-new" do %>
+        <div class="list-card-icon">＋</div>
+        <div class="list-card-title">Nouvelle liste</div>
+        <div class="list-card-count">Ajoute une watchlist</div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

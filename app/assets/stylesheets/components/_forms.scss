@@ -1,0 +1,106 @@
+.form-card {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: 1.25rem;
+  padding: 2rem 2rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.form-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.form-card-subtitle {
+  font-size: 0.85rem;
+  color: $text-muted;
+  margin-bottom: 1.75rem;
+}
+
+.form-label {
+  color: $text-muted;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+
+.form-control,
+.form-select {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid $border-color !important;
+  color: $text-white !important;
+  border-radius: 0.75rem !important;
+  padding: 0.7rem 1rem !important;
+  font-size: 0.9rem;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+
+  &:focus {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: $accent !important;
+    box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.15) !important;
+    outline: none;
+  }
+
+  option {
+    background: $bg-card;
+    color: $text-white;
+  }
+}
+
+// Simple form overrides
+.simple_form {
+  .input {
+    margin-bottom: 1.25rem;
+  }
+
+  .string input,
+  .text textarea,
+  select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid $border-color;
+    color: $text-white;
+    border-radius: 0.75rem;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    font-family: $body-font;
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    &:focus {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: $accent;
+      box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.15);
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $text-muted;
+    }
+  }
+
+  select option {
+    background: $bg-card;
+    color: $text-white;
+  }
+
+  label {
+    color: $text-muted;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .btn {
+    margin-top: 0.5rem;
+  }
+}

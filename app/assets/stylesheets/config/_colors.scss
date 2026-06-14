@@ -1,10 +1,18 @@
-// Define variables for your color scheme
+// Palette cinéma dark
+$bg-dark:       #0D0B1E;
+$bg-card:       #1C1931;
+$bg-card-hover: #251F40;
+$accent:        #E94560;
+$accent-light:  #FF6B85;
+$text-white:    #FFFFFF;
+$text-muted:    #8B8BA7;
+$border-color:  rgba(255, 255, 255, 0.08);
 
-// For example:
-$red: #FD1015;
-$blue: #0D6EFD;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
+// Bootstrap aliases
+$red:           #E94560;
+$blue:          #6C63FF;
+$yellow:        #FFD166;
+$orange:        #F4845F;
+$green:         #06D6A0;
+$gray:          $text-white;
+$light-gray:    $bg-dark;
