@@ -1,0 +1,12 @@
+<div class="form-card">
+  <p class="form-card-title">Ajouter un film</p>
+
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :movie_id, label: "Film" %>
+    <%= f.input :comment, label: "Commentaire" %>
+    <div class="d-flex gap-2 mt-3">
+      <%= f.submit "Ajouter", class: "btn btn-accent" %>
+      <%= link_to "Annuler", list_path(@list), class: "btn btn-ghost" %>
+    </div>
+  <% end %>
+</div>
