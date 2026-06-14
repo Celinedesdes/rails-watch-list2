@@ -1,0 +1,110 @@
+<div class="list-hero">
+  <div class="d-flex align-items-start justify-content-between flex-wrap gap-2">
+    <div>
+      <h1 class="list-hero-title">🎥 <%= @list.name %></h1>
+      <p class="list-hero-meta">
+        <span class="badge-count"><%= pluralize(@list.bookmarks.count, "film") %></span>
+        dans ta liste
+      </p>
+    </div>
+    <%= link_to "← Mes listes", lists_path, class: "btn btn-ghost" %>
+  </div>
+</div>
+
+<div class="row g-4">
+  <div class="col-12 col-lg-7">
+    <% if @list.bookmarks.empty? %>
+      <div class="empty-state">
+        <div class="empty-state-icon">🎞️</div>
+        <p class="empty-state-title">Cette liste est vide</p>
+        <p class="empty-state-text">Ajoute un film ci-contre pour commencer !</p>
+      </div>
+    <% else %>
+      <div class="d-flex flex-column gap-2">
+        <% @list.bookmarks.each do |bookmark| %>
+          <div class="movie-card">
+            <div class="movie-card-icon">🎬</div>
+            <div class="movie-card-body">
+              <div class="movie-card-title"><%= bookmark.movie.title %></div>
+              <% if bookmark.comment.present? %>
+                <div class="movie-card-comment">💬 <%= bookmark.comment %></div>
+              <% else %>
+                <div class="movie-card-comment">Aucun commentaire</div>
+              <% end %>
+            </div>
+            <%= link_to "Supprimer", bookmark_path(bookmark),
+              data: { turbo_method: :delete, turbo_confirm: "Supprimer ce film de la liste ?" },
+              class: "movie-card-delete" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="reviews-section">
+      <h2 class="reviews-section-title">
+        Avis <span><%= @list.reviews.count %> commentaire<%= "s" if @list.reviews.count > 1 %></span>
+      </h2>
+
+      <% if @list.reviews.empty? %>
+        <p class="empty-state-text mb-4">Sois le premier à donner ton avis !</p>
+      <% else %>
+        <div class="d-flex flex-column gap-2 mb-4">
+          <% @list.reviews.order(created_at: :desc).each do |review| %>
+            <div class="review-card">
+              <div class="review-header">
+                <div class="review-stars">
+                  <% 5.times do |i| %>
+                    <%= i < review.rating ? "⭐" : "☆" %>
+                  <% end %>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <span class="review-date"><%= review.created_at.strftime("%d/%m/%Y") %></span>
+                  <%= link_to "✕", list_review_path(@list, review),
+                    data: { turbo_method: :delete, turbo_confirm: "Supprimer cet avis ?" },
+                    class: "review-delete" %>
+                </div>
+              </div>
+              <p class="review-content mb-0"><%= review.content %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="review-form-card">
+        <p class="review-form-title">✍️ Laisser un avis</p>
+        <%= simple_form_for [@list, @review] do |f| %>
+          <label class="star-picker-label">Note</label>
+          <div class="star-picker">
+            <% (1..5).reverse_each do |i| %>
+              <%= f.radio_button :rating, i, id: "rating_#{i}" %>
+              <label for="rating_<%= i %>" title="<%= i %> étoile<%= "s" if i > 1 %>">★</label>
+            <% end %>
+          </div>
+          <%= f.input :content,
+            label: "Commentaire",
+            as: :text,
+            placeholder: "Qu'est-ce que tu penses de cette liste ?",
+            input_html: { rows: 3 } %>
+          <%= f.submit "Publier", class: "btn btn-accent mt-1" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-lg-5">
+    <div class="form-card">
+      <p class="form-card-title">➕ Ajouter un film</p>
+      <p class="form-card-subtitle">à <strong><%= @list.name %></strong></p>
+
+      <%= simple_form_for [@list, @bookmark] do |f| %>
+        <%= f.association :movie, label: "Film", prompt: "Choisir un film..." %>
+        <%= f.input :comment,
+          label: "Commentaire (optionnel)",
+          as: :text,
+          placeholder: "Ton avis en quelques mots...",
+          input_html: { rows: 3 } %>
+        <%= f.submit "Ajouter", class: "btn btn-accent w-100 mt-1" %>
+      <% end %>
+    </div>
+  </div>
+</div>

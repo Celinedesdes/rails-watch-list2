@@ -1,0 +1,15 @@
+<div class="form-card">
+  <p class="form-card-title">✨ Nouvelle liste</p>
+  <p class="form-card-subtitle">Donne un nom à ta watchlist</p>
+
+  <%= simple_form_for @list do |f| %>
+    <%= f.input :name,
+      label: "Nom de la liste",
+      placeholder: "Ex: Films d'horreur, Classiques...",
+      input_html: { autofocus: true } %>
+    <div class="d-flex gap-2 mt-3">
+      <%= f.submit "Créer la liste", class: "btn btn-accent" %>
+      <%= link_to "Annuler", lists_path, class: "btn btn-ghost" %>
+    </div>
+  <% end %>
+</div>

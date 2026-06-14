@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Rails Watch List2" %></title>
+    <title><%= content_for(:title) || "Watchlist" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Rails Watch List2">
-    <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= yield :head %>
-
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
-
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-watchlist sticky-top">
+      <div class="container">
+        <%= link_to lists_path, class: "navbar-brand" do %>
+          🎬 Watch<span>list</span>
+        <% end %>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto align-items-center gap-1">
+            <li class="nav-item">
+              <%= link_to "Mes listes", lists_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "+ Nouvelle liste", new_list_path, class: "btn-nav-accent" %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="page-wrapper">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

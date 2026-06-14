@@ -1,12 +1,52 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
+.navbar-watchlist {
+  background: rgba(13, 11, 30, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid $border-color;
+  padding: 1rem 1.5rem;
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: -0.5px;
+    color: $text-white;
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+    span {
+      color: $accent;
+    }
+  }
+
+  .nav-link {
+    color: $text-muted;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+    padding: 0.4rem 0.8rem !important;
+    border-radius: 0.5rem;
+
+    &:hover {
+      color: $text-white;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    &.active {
+      color: $accent;
+    }
+  }
+
+  .btn-nav-accent {
+    background: $accent;
+    color: $text-white;
+    border: none;
+    border-radius: 0.6rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.1s;
+
+    &:hover {
+      background: $accent-light;
+      color: $text-white;
+      transform: translateY(-1px);
+    }
+  }
 }

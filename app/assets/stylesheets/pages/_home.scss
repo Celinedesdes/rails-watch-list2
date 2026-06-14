@@ -1,1 +1,81 @@
-// Specific CSS for your home-page
+// Global page layout
+body {
+  min-height: 100vh;
+}
+
+.page-wrapper {
+  min-height: calc(100vh - 72px);
+  padding: 2.5rem 0;
+}
+
+// Section headers
+.section-header {
+  margin-bottom: 2rem;
+
+  .section-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.25rem;
+  }
+
+  .section-subtitle {
+    color: $text-muted;
+    font-size: 0.9rem;
+  }
+}
+
+// Empty state
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: $text-muted;
+
+  .empty-state-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+
+  .empty-state-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $text-white;
+    margin-bottom: 0.5rem;
+  }
+
+  .empty-state-text {
+    font-size: 0.88rem;
+  }
+}
+
+// List show page hero
+.list-hero {
+  background: linear-gradient(135deg, rgba(233, 69, 96, 0.15) 0%, rgba(108, 99, 255, 0.08) 100%);
+  border: 1px solid $border-color;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+
+  .list-hero-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.25rem;
+  }
+
+  .list-hero-meta {
+    color: $text-muted;
+    font-size: 0.85rem;
+  }
+}
+
+// Badge count
+.badge-count {
+  background: rgba(233, 69, 96, 0.15);
+  color: $accent;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}

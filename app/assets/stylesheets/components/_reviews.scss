@@ -1,0 +1,128 @@
+.reviews-section {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid $border-color;
+}
+
+.reviews-section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+
+  span {
+    color: $text-muted;
+    font-weight: 400;
+    font-size: 0.85rem;
+    margin-left: 0.4rem;
+  }
+}
+
+.review-card {
+  background: $bg-card;
+  border: 1px solid $border-color;
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.6rem;
+  }
+
+  .review-stars {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .review-date {
+    font-size: 0.75rem;
+    color: $text-muted;
+  }
+
+  .review-content {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-top: 0.5rem;
+  }
+
+  .review-delete {
+    background: transparent;
+    border: none;
+    color: $text-muted;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s;
+
+    &:hover {
+      color: $accent;
+      background: rgba(233, 69, 96, 0.1);
+    }
+  }
+}
+
+// Star picker dans le formulaire
+.star-picker {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 0.2rem;
+  margin-bottom: 1.25rem;
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  label {
+    font-size: 1.6rem;
+    color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: color 0.15s, transform 0.1s;
+    text-transform: none;
+    letter-spacing: normal;
+    padding: 0;
+    margin: 0;
+
+    &:hover,
+    &:hover ~ label {
+      color: $yellow;
+      transform: scale(1.15);
+    }
+  }
+
+  input[type="radio"]:checked ~ label {
+    color: $yellow;
+  }
+}
+
+.star-picker-label {
+  color: $text-muted;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.review-form-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 1rem;
+  padding: 1.5rem;
+
+  .review-form-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: $text-muted;
+  }
+}
