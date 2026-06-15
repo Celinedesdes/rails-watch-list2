@@ -1,18 +1,18 @@
 .reviews-section {
-  margin-top: 2.5rem;
-  padding-top: 2rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
   border-top: 1px solid $border-color;
 }
 
 .reviews-section-title {
-  font-size: 1.1rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
 
   span {
     color: $text-muted;
     font-weight: 400;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     margin-left: 0.4rem;
   }
 }
@@ -82,6 +82,7 @@
   }
 
   label {
+    display: inline-block !important;
     font-size: 1.6rem;
     color: rgba(255, 255, 255, 0.2);
     cursor: pointer;
